@@ -1,10 +1,4 @@
-import { createConnections } from 'typeorm';
+import { createConnection } from 'typeorm';
 
-//Aqui: procura Arquivo ORMCONFIG.JSON > e pega as credenciais
-createConnections();
+createConnection();
 
-
-// import { createConnection } from 'typeorm';
-
-// //Aqui: procura Arquivo ORMCONFIG.JSON > e pega as credenciais
-// createConnection();

@@ -6,13 +6,13 @@ import { celebrate, Segments, Joi } from 'celebrate';
 // import UsersRepository from '@modules/users/infra/typeorm/Repositories/UserRepository';
 
 import UsersController from '../controllers/UsersController';
-import UserAvatarController from '../controllers/UserAvatarController';
+//import UserAvatarController from '../controllers/UserAvatarController';
 
 
 
 const usersRouter = Router();
 const usersController = new UsersController();
-const userAvatarController = new UserAvatarController();
+//const userAvatarController = new UserAvatarController();
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 // import User from '../models/User';
@@ -26,12 +26,14 @@ usersRouter.post('/', celebrate({
         name: Joi.string().required(),
         email: Joi.string().email().required(),
         password: Joi.string().required(),
+        rg: Joi.string().required(),
+        cpf: Joi.string().required(),
     }
 }), usersController.create);
 
 //PUT > possibilidade de atualizar todos os campos de uma linha/registro
 //PATCH: auteração de apenas UM campo de um registro
-usersRouter.patch('/avatar', ensureAuthenticated, upload.single('avatar'), userAvatarController.update)
+//usersRouter.patch('/avatar', ensureAuthenticated, upload.single('avatar'), userAvatarController.update);
 
 
 export default usersRouter;

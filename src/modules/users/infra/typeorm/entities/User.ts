@@ -16,7 +16,10 @@ class User {
     password: string;
 
     @Column()
-    avatar: string;
+    rg: string;
+
+    @Column()
+    cpf: string;
 
     @CreateDateColumn()
     created_at: Date;
@@ -27,6 +30,4 @@ class User {
 }
 
 export default User;
-
-
 
